@@ -1,13 +1,17 @@
 Miniblog::Application.routes.draw do
-  #resources :comments
+  get "sessions/new"
 
+  #resources :comments
+  get 'signup' => 'users#new', :as => 'signup'
+  get 'login' => 'sessions#new', :as => 'login'
+  get 'logout' => 'sessions#destroy', :as => 'logout'
 
   resources :posts do
     resources :comments
   end
 
   resources :users
-
+  resources :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -58,7 +62,7 @@ Miniblog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'posts#index'
+  root :to => 'posts#index', :as => 'posts'
 
   # See how all your routes lay out with "rake routes"
 

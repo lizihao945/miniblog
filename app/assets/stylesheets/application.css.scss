@@ -34,13 +34,17 @@
     padding: 1em;
     background: white;
   }
-
+  #user_info {
+    color: white;
+    border-top:    1px dotted #595;
+    border-bottom: 1px dotted #595;
+    margin-bottom: 10px;
+  }
   #side {
     float: left;
     padding: 1em 2em;
     width: 13em;
     background: #141;
-    padding-bottom: 100px;
     ul {
       padding: 0;
       li {
