@@ -21,7 +21,7 @@
   text-align: center;
 
   img {
-  	max-height: 40px;
+    max-height: 40px;
     float: left;
   }
 }
@@ -34,21 +34,22 @@
     padding: 1em;
     background: white;
   }
+
   #side {
     float: left;
     padding: 1em 2em;
     width: 13em;
     background: #141;
-	ul {
+    padding-bottom: 100px;
+    ul {
       padding: 0;
       li {
         list-style: none;
-
         a {
           color: #bfb;
           font-size: small;
+          }
         }
-      }
     }     
   }
 }
