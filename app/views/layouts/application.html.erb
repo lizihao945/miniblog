@@ -1,0 +1,32 @@
+<!-- START:head -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Miniblog</title>
+	<%= stylesheet_link_tag "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %></head>
+	<!-- END:head -->
+<body class="<%= controller.controller_name %>
+	">
+	<div id="banner">
+		<%= image_tag("my_avatar.png")%>
+		<%= "Miniblog" %></div>
+	<div id="columns">
+		<div id="side">
+			<ul>
+				<li>
+					<a href="">Home</a>
+				</li>
+				<li>
+					<a href="">Home</a>
+				</li>
+				<li>
+					<a href="">Home</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<%= yield %></body>
+</html>
