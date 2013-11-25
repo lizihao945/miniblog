@@ -34,11 +34,19 @@
     padding: 1em;
     background: white;
   }
+  #user_info_title {
+    color: white;
+    font: small-caps 20px/20px "Times New Roman", serif;
+  }
   #user_info {
     color: white;
     border-top:    1px dotted #595;
     border-bottom: 1px dotted #595;
     margin-bottom: 10px;
+    a {
+    color: #bfb;
+    font-size: small;
+    }
   }
   #side {
     float: left;

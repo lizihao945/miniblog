@@ -1,5 +1,6 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
+<p id="notice">
+  <%= notice %></p>
 <% end %>
 
 <h1>Listing posts</h1>
@@ -7,11 +8,10 @@
   <% @posts.each do |post| %>
   <div class="post">
     <pre><%= post.content %></pre>
-    <div class="time_line"><%= post.content.length %>
-    words, posted
-    <%= time_ago_in_words post.created_at %>
-    ago.
-    </div>
+    <div class="time_line">
+      <%= post.content.length %>
+      words, posted
+      <%= time_ago_in_words post.created_at %>&nbspago.</div>
     <%= link_to 'Edit', edit_post_path(post) %>
     <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></div>
   <% end %>
