@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-
+    @user = current_user
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -13,11 +13,16 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid user #{params[:id]}"
+      redirect_to posts_url, notice => "No such user!#{params[:id]}"
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @user }
+      end
     end
   end
 
