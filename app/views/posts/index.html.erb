@@ -1,10 +1,23 @@
 <script>
+  jQuery.expr[':'].regex = function(elem, index, match) {
+    var matchParams = match[3].split(','),
+        validLabels = /^(data|css):/,
+        attr = {
+            method: matchParams[0].match(validLabels) ?
+                        matchParams[0].split(':')[0] : 'attr',
+            property: matchParams.shift().replace(validLabels,'')
+        },
+        regexFlags = 'ig',
+        regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g,''), regexFlags);
+    return regex.test(jQuery(elem)[attr.method](attr.property));
+  }
   $(function() {
-    $( ".comment_list" ).click(function() {
-      $( "#show_comments" ).toggle( "blind" );
-      return false;
+    var $show_btn = $( ":regex(class, ^comments_)" )
+    $show_btn.click(function() {
+      var dom_str = ".list_" + $(this).attr("class");
+      $( dom_str ).toggle( "blind" );
     });
-   $( ".comment_list" ).hide();
+   $( ":regex(class, ^list_comments_)" ).hide();
   });
 </script>
 <% if notice %>
@@ -19,20 +32,22 @@
   <div class="blog_detail">
     <div class="info"></div>
     <pre><%= post.content %></pre>
-    <div class="post_length">
-      <%= post.content.length %>words</div>
     <div class="post_func">
       <div class="time_from_client">
+        <%= post.content.length %>
+        words
+        |
         posted
         <%= time_ago_in_words post.created_at %>&nbsp;ago&nbsp;from&nbsp;Miniblog.</div>
       <div class="post_handle">
         <%= link_to 'like' %>
-        <a href="javascript:void(0);" id="show_comments">Comments</a>
+        <a href="javascript:void(0);" class="comments_<%= post.id %>">Comments</a>
       </div>
     </div>
-    <div class="comment_list">
+    <div class="list_comments_<%= post.id %>
+      ">
       <%= render post %></div>
   </div>
-  <!--POSTS END-->
   <% end %>
+  <!--POSTS END-->
   <%= link_to 'New Post', new_post_path %></div>

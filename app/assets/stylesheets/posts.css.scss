@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .posts {
-	h1 {		
+	h1 {
 		margin: 0;
 		padding-bottom: 0.5em;
 		font: 150% sans-serif;
@@ -10,16 +10,22 @@
 		border-bottom: 3px dotted #77d;
 	}
 	.blog_detail {
+		width: 800px;
 		margin-top: 1em;
 		border-bottom: 1px dotted #77d;
 		min-height: 100px;
 		.post_func {
+			height: 18px;
 			.time_from_client {
+				overflow: nowrap;
 				float: left;
 			}
 			.post_handle {
 				float: right;
 			}
+		}
+		.list_comments {
+			border-top: 2px dotted #77d;
 		}
 	}
 	p {
