@@ -9,13 +9,20 @@
 		color: #226;
 		border-bottom: 3px dotted #77d;
 	}
-	.post {
-		overflow: auto;
+	.blog_detail {
 		margin-top: 1em;
 		border-bottom: 1px dotted #77d;
 		min-height: 100px;
+		.post_func {
+			.time_from_client {
+				float: left;
+			}
+			.post_handle {
+				float: right;
+			}
+		}
 	}
-	p, div.time_line {
+	p {
 		margin-left: 100px;
 		margin-top: 0.5em;
 		margin-bottom: 0.8em;

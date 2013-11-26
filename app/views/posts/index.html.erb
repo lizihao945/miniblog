@@ -1,3 +1,12 @@
+<script>
+  $(function() {
+    $( ".comment_list" ).click(function() {
+      $( "#show_comments" ).toggle( "blind" );
+      return false;
+    });
+   $( ".comment_list" ).hide();
+  });
+</script>
 <% if notice %>
 <p id="notice">
   <%= notice %></p>
@@ -7,15 +16,23 @@
 <div class="posts">
   <!--POSTS START-->
   <% @posts.each do |post| %>
-  <div class="post">
+  <div class="blog_detail">
+    <div class="info"></div>
     <pre><%= post.content %></pre>
-    <div class="time_line">
-      <%= post.content.length %>
-      words, posted
-      <%= time_ago_in_words post.created_at %>&nbspago.</div>
-    <%= link_to 'Edit', edit_post_path(post) %>
-    <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>
-    <%= render post %></div>
+    <div class="post_length">
+      <%= post.content.length %>words</div>
+    <div class="post_func">
+      <div class="time_from_client">
+        posted
+        <%= time_ago_in_words post.created_at %>&nbsp;ago&nbsp;from&nbsp;Miniblog.</div>
+      <div class="post_handle">
+        <%= link_to 'like' %>
+        <a href="javascript:void(0);" id="show_comments">Comments</a>
+      </div>
+    </div>
+    <div class="comment_list">
+      <%= render post %></div>
+  </div>
   <!--POSTS END-->
   <% end %>
   <%= link_to 'New Post', new_post_path %></div>

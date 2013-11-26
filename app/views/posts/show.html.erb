@@ -6,20 +6,18 @@
 
 <p> <b>Content:</b>
 	<%= @post.content %></p>
-
 <%= link_to 'Edit', edit_post_path(@post) %>
 |
-<%= link_to 'Back', posts_path %>
-
+<%= link_to 'Destroy', @post, confirm: 'Are you sure?', method: :delete %>
 <h2>Comments</h2>
 <div id="comments">
-	<%= render :partial =>@post.comments %>
-</div>
+	<%= render :partial =>@post.comments %></div>
 
 <%= form_for [@post, Comment.new] do |f| %>
-  <p>
-    <%= f.label :content, "New Comment" %> <br />
-    <%= f.text_area :content, :rows => 5 %>
-  </p>
-  <p><%= f.submit "Add Comment" %></p>
+<p>
+	<%= f.label :content, "New Comment" %>
+	<br />
+	<%= f.text_area :content, :rows =>5 %></p>
+<p>
+	<%= f.submit "Add Comment" %></p>
 <% end %>
