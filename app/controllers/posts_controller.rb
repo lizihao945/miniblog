@@ -5,8 +5,11 @@ class PostsController < ApplicationController
     @posts = Post.all
 
     respond_to do |format|
+      if not current_user
+        flash[:notice] = 'Please Log In To Post Your Own Blog!'
       format.html # index.html.erb
       format.json { render json: @posts }
+      end
     end
   end
 
@@ -41,7 +44,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    @post.user = current_user
     respond_to do |format|
       if @post.save
         format.html { redirect_to index_url, notice: 'Post was successfully created.' }

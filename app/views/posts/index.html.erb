@@ -51,4 +51,7 @@
   </div>
   <% end %>
   <!--POSTS END-->
-  <%= link_to 'New Post', new_post_path %></div>
+  <% if current_user %>
+  <%= link_to 'New Post', new_post_path, class: 'new_post' %>
+  <% end %>
+  </div>
