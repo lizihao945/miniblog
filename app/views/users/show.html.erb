@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Image:</b>
+  <%= image_tag @user.image_url, style: "max-height: 40px;" %>
+</p>
+
+<p>
   <b>Name:</b>
   <%= @user.name %>
 </p>

@@ -2,9 +2,10 @@
 
 <table>
   <tr>
+    <th>Image Url</th>
+    <th>Image</th>
     <th>Name</th>
     <th>Email</th>
-    <th>Passwd</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +13,14 @@
 
 <% @users.each do |user| %>
   <tr>
+    <td><%= user.image_url %></td>
+    <td>
+      <% if user.image_url != "" %>
+      <%= image_tag user.image_url, style: "max-height: 40px;" %>
+      <% end %>
+    </td>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td><%= user.passwd %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
