@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :passwd, :passwd_confirmation
+  attr_accessible :email, :name, :passwd, :passwd_confirmation, :image_url
   #email
   validates_uniqueness_of :email
   #name
-  validates_presence_of :name
+  validates_presence_of :name, :email
   validates_uniqueness_of :name
   #passwd
   validates_confirmation_of :passwd
