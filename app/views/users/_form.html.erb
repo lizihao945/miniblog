@@ -10,21 +10,20 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>:
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>:
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :passwd %><br />
+    <lable for="user_passwd">Password:</lable>
     <%= f.password_field :passwd %>
   </div>
   <div class="field">
-    <%= f.label :passwd_confirmation %><br />
+    <lable for="user_passwd_confirmation">Password Confirmation:</lable>
     <%= f.password_field :passwd_confirmation %>
   </div>
   <div class="actions">
