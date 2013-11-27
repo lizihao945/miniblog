@@ -44,9 +44,10 @@
         <a href="javascript:void(0);" class="comments_<%= post.id %>">Comments</a>
       </div>
     </div>
-    <div class="list_comments_<%= post.id %>
-      ">
-      <%= render post %></div>
+    <div class="list_comments_<%= post.id %> ">
+      <div class="existed_comments_<%= post.id %>" ><%= render :partial => post.comments %></div>
+      <div class="new_comment" %><%= render post %></div>
+    </div>
   </div>
   <% end %>
   <!--POSTS END-->
