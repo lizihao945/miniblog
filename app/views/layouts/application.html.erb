@@ -18,21 +18,30 @@
 		<div id="side">
 			<div id="user_info_title">My Account</div>
 			<div id="user_info">
-				<% if current_user %>
-				<%= render current_user %>
-				<% else %>
-				<%= link_to "Sign Up", signup_path %>&nbsp;|&nbsp;
-				<%= link_to "Log In", login_path %>
-				<% end %></div>
+			  <div id="detailed_info">
+			  <% if current_user %>
+			    <%= render current_user %></div>
+			  <% else %>
+  			    You're Not Logged In!<br /></div>
+			    <div class="btn_func">
+				  <%= link_to "Sign Up", signup_path %>&nbsp;|&nbsp;
+				  <%= link_to "Log In", login_path %>
+			  </div>
+			</div>
+			<% end %>
 			<ul>
 				<li>
-					<a href="">Home</a>
+					<a href="/">Home Page</a>
 				</li>
 				<li>
-					<a href="">Home</a>
+					<% if current_user %>
+					  <a href="/users/<%= current_user.id %>">My Profile</a>
+					<% else %>
+					  <a href="/login">My Profile</a>
+					<% end %>
 				</li>
 				<li>
-					<a href="">Home</a>
+					<a href="mailto:lizihao945@gmail.com">Contact Me</a>
 				</li>
 			</ul>
 		</div>

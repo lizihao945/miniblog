@@ -59,17 +59,26 @@
 
     #user_info {
       color: white;
+      margin-top: 10px;
+      padding-top: 5px;
       border-top:    1px dotted #595;
       border-bottom: 1px dotted #595;
+      padding-bottom: 5px;
       margin-bottom: 10px;
-      a {
-      color: #bfb;
-      font-size: 1.2em;
+      #detailed_info {
+        font-size: 1.3em;
+      }
+      .btn_func{
+        a {
+        color: #bfb;
+        font-size: 1.1em;
+        }
       }
     }
     ul {
       padding: 0;
       li {
+        padding: 5px 0 0 0;
         list-style: none;
         a {
           color: #bfb;
