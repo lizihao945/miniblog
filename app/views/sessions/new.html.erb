@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
 <h1>Login</h1>
-<%= form_tag sessions_path do %>
+<%= form_tag sessions_path, remote: true do %>
   <div class="field">
 	<%= label_tag :email %>:
 	<%= text_field_tag :email, params[:email] %>

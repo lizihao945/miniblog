@@ -5,9 +5,15 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:email], params[:passwd])
     if user
       session[:user_id] = user.id
-      redirect_to posts_url, :notice => "Logged in successfully!"
-    else
-      redirect_to login_url, :notice => "Invalid email or password!"
+    end
+    respond_to do |format|
+      if user
+        format.js
+        format.html { redirect_to index_url, :notice => "Logged in successfully!" }
+      else
+        format.js
+        format.html { redirect_to login_url, :notice => "Invalid email or password!" }
+      end
     end
   end
 
