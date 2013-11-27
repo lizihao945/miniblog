@@ -18,17 +18,16 @@
 		<div id="side">
 			<div id="user_info_title">My Account</div>
 			<div id="user_info">
-			  <div id="detailed_info">
 			  <% if current_user %>
-			    <%= render current_user %></div>
+			    <div id="detailed_info"><%= render current_user %></div>
 			  <% else %>
-  			    You're Not Logged In!<br /></div>
+  			    <div id="detailed_info">You're Not Logged In!</div>
 			    <div class="btn_func">
 				  <%= link_to "Sign Up", signup_path %>&nbsp;|&nbsp;
 				  <%= link_to "Log In", login_path %>
 			  </div>
+			  <% end %>
 			</div>
-			<% end %>
 			<ul>
 				<li>
 					<a href="/">Home Page</a>

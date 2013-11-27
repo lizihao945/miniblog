@@ -3,10 +3,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-
+    if not current_user
+      flash[:notice] = 'Please Log In To Post Your Own Blog!'
     respond_to do |format|
-      if not current_user
-        flash[:notice] = 'Please Log In To Post Your Own Blog!'
       format.html # index.html.erb
       format.json { render json: @posts }
       end
