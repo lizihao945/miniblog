@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  */
+.avatar {
+  img {
+    max-height: 40px;
+  }
+}
 body {
   margin-left: 50px;
   width: 1200px;
@@ -23,14 +28,13 @@ body {
   color: #282;
   text-align: center;
   img {
-    max-height: 40px;
+    max-height: 45px;
     float: left;
   }
 }
 
 #columns {
   background: #141;
-
   #main {
     h1.title {
       margin: 0;

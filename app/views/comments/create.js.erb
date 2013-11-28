@@ -19,4 +19,4 @@ $(function() {
 });
 $( ".existed_comments_<%= @comment.post_id %>" ).append( "<%= escape_javascript(render @comment) %>" );
 $( "#comment_<%= @comment.id %>").effect( "highlight", "slow" );
-$( ".new_comment" ).reset();
+
