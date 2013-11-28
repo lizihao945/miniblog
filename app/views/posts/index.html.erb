@@ -38,6 +38,6 @@
   <% end %>
   <!--POSTS END-->
   <% if current_user %>
-  <%= link_to 'New Post', new_post_path, class: 'new_post' %>
+  <%= button_to 'New Post', new_post_path, class: 'new_post', method: :get %>
   <% end %>
   </div>

@@ -1,16 +1,18 @@
 Miniblog::Application.routes.draw do
-  get "sessions/new"
-
   #resources :comments
   get 'signup' => 'users#new', as: 'signup'
+  get 'login' => 'posts#index', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
   get 'sessions' => 'posts#index'
+
   resources :posts do
     resources :comments
   end
 
   resources :users
-  resources :sessions
+  
+  post 'sessions' => 'sessions#create'
+  delete 'sessions/:id' => 'sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -22,9 +24,6 @@ Miniblog::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
 
   # Sample resource route with options:
   #   resources :products do

@@ -49,11 +49,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.js #create.js.erb
-        format.html { redirect_to new_session_path(email: @user.email, passwd: @user.passwd) }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.js #create.js.erb
-        format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -63,7 +61,15 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
+    if current_user != @user
+      if current_user
+        redirect_to @user, notice: 'Edit your own profile!'
+        return false
+      else
+        redirect_to index_url, notice: 'Log in first!'
+        return false
+      end
+    end
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

@@ -3,6 +3,13 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
+    @update = {
+      email: 'lizihao945@gmail.com',
+      name: 'James Lee',
+      image_url: 'james_avatar.gif',
+      passwd: 'asdfqwer',
+      passwd_confirmation: 'asdfqwer'
+    }
   end
 
   test "should get index" do
@@ -27,8 +34,8 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    put :update, id: @user, user: { email: @user.email, name: @user.name, passwd: @user.passwd }
-    assert_redirected_to user_path(assigns(:user))
+    put :update, id: @user, user: @update
+    assert_redirected_to index_url
   end
 
   test "should destroy user" do

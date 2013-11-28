@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  email: MyString
+  email: MyString@MyString.com
   passwd: MyString
 
 two:
   name: MyString
-  email: MyString
+  email: MyString@MyString.com
   passwd: MyString
