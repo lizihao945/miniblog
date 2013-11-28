@@ -27,7 +27,7 @@
         <%= link_to 'like' %>&nbsp;|&nbsp;
         <a href="javascript:void(0);" class="comments_<%= post.id %>">Comments
           <% if post.comments.count != 0 %>
-          (<%= post.comments.count %>)
+          <span id="comments_count_<%= post.id %>">(<%= post.comments.count %>)</span>
           <% end %>
         </a>
       </div>
