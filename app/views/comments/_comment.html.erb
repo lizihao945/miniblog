@@ -1,7 +1,7 @@
 <%= div_for comment do %>
 <div class="comment_user", style="float: left;">
   <% if comment.user %>
-  <%= image_tag comment.user.image_url %>
+  <%= image_tag comment.user.image_url, style: 'max-height: 40px;' %>
   <% end %>
 </div>
 <p>
