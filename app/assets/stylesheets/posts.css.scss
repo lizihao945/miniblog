@@ -20,8 +20,10 @@
 				float: right;
 			}
 		}
-		.list_comments {
-			border-top: 2px dotted #77d;
+		.comment_user {
+			img {
+				max-height: 40px;
+			}
 		}
 	}
 }

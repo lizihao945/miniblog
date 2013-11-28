@@ -17,9 +17,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
     @comment = Comment.new(params[:comment])
-    @comment.post = @post
+    @comment.post = Post.find(params[:post_id])
+    if current_user
+      @comment.user = current_user
+    end
     respond_to do |format|
       if @comment.save
         format.js #create.js.erb
