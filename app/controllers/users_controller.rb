@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.js #create.js.erb
-        format.html { redirect_to posts_url, notice: 'User was successfully created.' }
+        format.html { redirect_to new_session_path(email: @user.email, passwd: @user.passwd) }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.js #create.js.erb

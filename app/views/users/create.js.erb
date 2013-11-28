@@ -1,6 +1,6 @@
-<% if not @user.errors.empty? %>
+<% if @user.errors.any? %>
   $( '#error_explanation' ).remove();
   $( "#main" ).prepend( "<div id='error_explanation'><h2><%= pluralize(@user.errors.count, 'error') %>:</h2><ul><% @user.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul></div>" );
 <% else %>
-  window.location.href='/';
+  $.post( "/sessions", { email: "<%= @user.email %>", passwd: "<%= @user.passwd %>" } );
 <% end %>

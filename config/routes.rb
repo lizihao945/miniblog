@@ -3,9 +3,8 @@ Miniblog::Application.routes.draw do
 
   #resources :comments
   get 'signup' => 'users#new', as: 'signup'
-  get 'login' => 'posts#index'
   get 'logout' => 'sessions#destroy', as: 'logout'
-
+  get 'sessions' => 'posts#index'
   resources :posts do
     resources :comments
   end

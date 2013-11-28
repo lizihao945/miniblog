@@ -8,13 +8,11 @@
   <!--POSTS START-->
   <% @posts.each do |post| %>
   <div class="blog_detail">
-    <div style="height: 70px;">
-      <div class="user_info">
-        <div class="avatar"><%= image_tag post.user.image_url %></div>
-        <%= post.user.name %>
-      </div>
-      <div class="blog_content"><%= post.content %></div>
+    <div class="user_info", style="height: 70px;">
+      <div class="avatar"><%= image_tag post.user.image_url %></div>
+      <%= post.user.name %>
     </div>
+    <div class="blog_content"><%= post.content %></div>
     <div class="post_func">
       <div class="time_from_client">
         <%= post.content.length %>
