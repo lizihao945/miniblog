@@ -23,7 +23,9 @@
         posted
         <%= time_ago_in_words post.created_at %>&nbsp;ago&nbsp;from&nbsp;Miniblog.</div>
       <div class="post_handle">
-        <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>&nbsp;|&nbsp;
+        <% if current_user == post.user %>
+          <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>&nbsp;|&nbsp;
+        <% end %>
         <%= link_to 'like' %>&nbsp;|&nbsp;
         <a href="javascript:void(0);" class="comments_<%= post.id %>">Comments
           <% if post.comments.count != 0 %>
