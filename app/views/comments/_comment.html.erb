@@ -12,7 +12,6 @@
 	<% if comment.user == current_user || comment.post.user == current_user %>
 	  <%= link_to 'Destroy', delete_path, method: :delete, remote: true %>&nbsp;|&nbsp;
 	<% end %>
-	<%= link_to 'like' %>&nbsp;|&nbsp;
-	<a href="javascript:void(0);" class="comments_<%= comment.id %>">Comments&nbsp;</a>
+	<%= link_to 'like' %>
 </p>
 <% end %>
