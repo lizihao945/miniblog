@@ -1,9 +1,9 @@
-<% if @comment.user == current_user %>
+<% if @comment.user == current_user || @comment.post.user == current_user %>
 	$( "#comment_<%= @comment.id %>" ).effect( "blind", { percent: 0 }, 500, callback );
 	function callback() {
 	  $( "#comment_<%= @comment.id %>" ).remove();
 	  $( "#comments_count_<%= @comment.post_id %>" ).text("(<%= @comment.post.comments.count %>)");
-};
+	};
 <% else %>
-	alert("You can only delete your own comments!");
+	alert("You can only delete your own comments or those to your posts!");
 <% end %>

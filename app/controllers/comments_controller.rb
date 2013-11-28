@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     
     respond_to do |format|
-      if @comment.user == current_user
+      if @comment.user == current_user || @comment.post.user == current_user
         @comment.destroy
         format.js
         format.html { redirect_to posts_url }
