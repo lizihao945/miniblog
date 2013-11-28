@@ -2,14 +2,14 @@ class PostsController < ApplicationController
   before_filter :authenticate, :except => [:index, :show]
   def authenticate
     if current_user.nil?
-      redirect_to login_path, :notice => 'Please Log In To Post Your Own Blog!'
+      redirect_to index_path, :notice => 'What\'re you doing!? Please Log In To Add/Modify Your Own Post!'
     end
   end
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
-    if not current_user
+    if not current_user and flash[:notice].nil?
       flash[:notice] = 'You Can Now View the Posts of Others.'
     respond_to do |format|
       format.html # index.html.erb
