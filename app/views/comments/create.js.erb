@@ -1,4 +1,4 @@
-$( ".existed_comments_<%= @comment.post_id %>" ).append( "<%= escape_javascript(render @comment) %>" );
+$( "#existing_comments_<%= @comment.post_id %>" ).append( "<%= escape_javascript(render @comment) %>" );
 $( "#comment_<%= @comment.id %>").effect( "highlight", "slow");
 $( "#new_comment_on_<%= @comment.post_id %>" )[0].reset();
 $( "#comments_count_<%= @comment.post_id %>" ).text("(<%= @comment.post.comments.count %>)");

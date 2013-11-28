@@ -6,10 +6,13 @@
 	margin-right: 30px;
 }
 .posts {
-	.blog_detail {
+	.post {
 		margin-top: 1em;
 		border-bottom: 1px dotted #77d;
 		min-height: 100px;
+		.post_detail .post_content {
+			min-height: 90px;
+		}
 		.post_func {
 			height: 18px;
 			.time_from_client {
@@ -18,11 +21,6 @@
 			}
 			.post_handle {
 				float: right;
-			}
-		}
-		.comment_user {
-			img {
-				max-height: 40px;
 			}
 		}
 	}

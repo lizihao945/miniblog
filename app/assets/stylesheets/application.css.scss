@@ -13,24 +13,25 @@
  */
 .avatar {
   img {
-    max-height: 40px;
+    max-height: 80px;
   }
 }
 body {
   margin-left: 50px;
   width: 1200px;
 }
+
 #banner {
-  background: #9c9;
+  background: #04477c;
   padding: 10px;
   border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
-  color: #282;
+  color: #cbf3fb;
   text-align: center;
 }
 
 #columns {
-  background: #141;
+  background: #712704;
   #main {
     h1.title {
       margin: 0;
@@ -41,7 +42,9 @@ body {
     }
     .field{
       font-size: 1.2em;
+      width: 170px;
       input {
+        width: 150px;
         padding: 5px 5px 5px 5px;
         font-size: 1.2em;
       border:1px solid #B3D6EF;
@@ -60,11 +63,11 @@ body {
     float: left;
     padding: 1em 2em;
     width: 13em;
-    background: #141;
+    background: #712704;
     .field{
       font-size: 1.1em;
       input {
-        width: 160px;
+        width: 150px;
         overflow: hidden;
         padding: 5px 5px 5px 5px;
         border:1px solid #B3D6EF;
@@ -76,18 +79,15 @@ body {
       padding-top: 0.5em;
       font: 110% sans-serif;
       color: white;
-      border-top: 2px dotted #595;
-      border-bottom: 2px dotted #595;
-      #email #passwd {
-
-      }
+      border-top: 2px dotted #d4d4d4;
     }
     #user_info {
-      color: white;
+      width: 170px;
+      color: #eed205;
       margin-top: 10px;
       padding-top: 5px;
-      border-top:    1px dotted #595;
-      border-bottom: 1px dotted #595;
+      border-top: 2px dotted #d4d4d4;
+      border-bottom: 2px dotted #d4d4d4;
       padding-bottom: 5px;
       margin-bottom: 10px;
       #detailed_info {
@@ -95,7 +95,7 @@ body {
       }
       .btn_func{
         a {
-        color: #bfb;
+        color: #fcfc8a;
         font-size: 1.1em;
         }
       }
@@ -106,7 +106,7 @@ body {
         padding: 5px 0 0 0;
         list-style: none;
         a {
-          color: #bfb;
+          color: #fcfc8a;
           font-size: 1.2em;
           }
         }

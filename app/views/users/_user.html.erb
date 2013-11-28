@@ -1,3 +1,8 @@
-<% @user = current_user %>
-<div class="avatar"><%= image_tag @user.image_url %></div>
-<%= @user.name %>
+<div class="avatar">
+  <% if user.image_url == "" %>
+    <%= image_tag 'default_avatar.png' %>
+  <% else %>
+    <%= image_tag user.image_url %>
+  <% end %>
+</div>
+<%= user.name %>

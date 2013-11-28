@@ -30,11 +30,11 @@ jQuery(function(){
   $( "#show_do_log_in" ).click(function() {
     $( "#do_log_in" ).toggle( "blind" );
   });
-  var $show_btn = $( ":regex(class, ^comments_)" )
-  $show_btn.click(function() {
-    var dom_str = ".list_" + $(this).attr("class");
+  $( "#do_log_in" ).hide();
+
+  $( ":regex(id, ^comments_)" ).click(function() {
+    var dom_str = ".list_" + $(this).attr("id");
     $( dom_str ).toggle( "blind" );
   });
-  $( "#do_log_in" ).hide();
-  $( ":regex(class, ^list_comments_)" ).hide();
+  $( ".list_comments" ).hide();
 });

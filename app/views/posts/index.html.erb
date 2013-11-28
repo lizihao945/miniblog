@@ -7,35 +7,33 @@
 <div class="posts">
   <!--POSTS START-->
   <% @posts.each do |post| %>
-  <div class="blog_detail">
-    <div class="user_info", style="height: 70px;">
-      <div class="avatar"><%= image_tag post.user.image_url %></div>
-      <%= post.user.name %>
-    </div>
-    <div class="blog_content"><%= post.content %></div>
-    <div class="post_func">
-      <div class="time_from_client">
-        <%= post.content.length %>
-        words
-        |
-        posted
-        <%= time_ago_in_words post.created_at %>&nbsp;ago&nbsp;from&nbsp;Miniblog.</div>
-      <div class="post_handle">
-        <% if current_user == post.user %>
-          <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>&nbsp;|&nbsp;
-        <% end %>
-        <%= link_to 'like' %>&nbsp;|&nbsp;
-        <a href="javascript:void(0);" class="comments_<%= post.id %>">Comments
-          <% if post.comments.count != 0 %>
-          <span id="comments_count_<%= post.id %>">(<%= post.comments.count %>)</span>
+  <div id="post_<%= post.user_id %>", class="post">
+    <div class="user_info">
+      <%= render post.user %></div>
+    <div class="post_detail">
+      <div class="post_content"><%= post.content %></div>
+      <div class="post_func">
+        <div class="time_from_client">
+          <%= post.content.length %>
+          words
+          |
+          posted
+          <%= time_ago_in_words post.created_at %>&nbsp;ago&nbsp;from&nbsp;Miniblog.</div>
+        <div class="post_handle">
+          <% if current_user == post.user %>
+            <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>&nbsp;|&nbsp;
           <% end %>
-        </a>
-      </div>
-    </div>
-    <div class="list_comments_<%= post.id %> ">
-      <div class="existed_comments_<%= post.id %>" ><%= render partial: post.comments %></div>
-      <%= render post %>
-    </div>
+          <%= link_to 'like' %>&nbsp;|&nbsp;
+          <a href="javascript:void(0);" id="comments_<%= post.id %>">Comments
+            <% if post.comments.count != 0 %>
+            <span id="comments_count_<%= post.id %>">(<%= post.comments.count %>)</span>
+            <% end %>
+          </a>
+        </div>
+      </div></div>
+    <div class="list_comments list_comments_<%= post.id %> ">
+      <div id="existing_comments_<%= post.id %>" ><%= render partial: post.comments %></div>
+      <%= render post %></div>
   </div>
   <% end %>
   <!--POSTS END-->
