@@ -34,7 +34,7 @@
     </div>
     <div class="list_comments_<%= post.id %> ">
       <div class="existed_comments_<%= post.id %>" ><%= render :partial => post.comments %></div>
-      <div class="new_comment" %><%= render post %></div>
+      <%= render post %>
     </div>
   </div>
   <% end %>

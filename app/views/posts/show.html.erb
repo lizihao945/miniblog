@@ -1,3 +1,12 @@
+<script type="text/javascript">
+$(function() {
+	var $show_btn = $( ":regex(class, ^comments_)" )
+	$show_btn.click(function() {
+  	var dom_str = ".list_" + $(this).attr("class");
+  	$( dom_str ).toggle( "blind" );
+	});
+});
+</script>
 <p id="notice">
 	<%= notice %></p>
 
