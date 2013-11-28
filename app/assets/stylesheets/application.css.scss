@@ -11,19 +11,9 @@
  *= require_self
  *= require_tree .
  */
-#main{
-  h1 {
-    font: small-caps 2.5em "Times New Roman", serif;
-  }
-  .field{
-    font-size: 1.2em;
-    input {
-      padding: 5px 5px 5px 5px;
-      font-size: 1.2em;
-    border:1px solid #B3D6EF;
-    background:#ffffff;
-    }
-  }
+body {
+  margin-left: 50px;
+  width: 1200px;
 }
 #banner {
   background: #9c9;
@@ -32,7 +22,6 @@
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
-
   img {
     max-height: 40px;
     float: left;
@@ -43,6 +32,22 @@
   background: #141;
 
   #main {
+    h1.title {
+      margin: 0;
+      padding-bottom: 0.5em;
+      font: small-caps 2.5em "Times New Roman" sans-serif;
+      color: #226;
+      border-bottom: 3px dotted #77d;
+    }
+    .field{
+      font-size: 1.2em;
+      input {
+        padding: 5px 5px 5px 5px;
+        font-size: 1.2em;
+      border:1px solid #B3D6EF;
+      background:#ffffff;
+      }
+    }
     margin-left: 17em;
     padding: 1em;
     background: white;
@@ -56,7 +61,27 @@
     padding: 1em 2em;
     width: 13em;
     background: #141;
+    .field{
+      font-size: 1.1em;
+      input {
+        width: 160px;
+        overflow: hidden;
+        padding: 5px 5px 5px 5px;
+        border:1px solid #B3D6EF;
+        background:#ffffff;
+      }
+    }
+    #do_log_in  {
+      margin: 0;  
+      padding-top: 0.5em;
+      font: 110% sans-serif;
+      color: white;
+      border-top: 2px dotted #595;
+      border-bottom: 2px dotted #595;
+      #email #passwd {
 
+      }
+    }
     #user_info {
       color: white;
       margin-top: 10px;

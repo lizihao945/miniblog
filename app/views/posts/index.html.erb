@@ -1,31 +1,11 @@
 <script>
-  jQuery.expr[':'].regex = function(elem, index, match) {
-    var matchParams = match[3].split(','),
-        validLabels = /^(data|css):/,
-        attr = {
-            method: matchParams[0].match(validLabels) ?
-                        matchParams[0].split(':')[0] : 'attr',
-            property: matchParams.shift().replace(validLabels,'')
-        },
-        regexFlags = 'ig',
-        regex = new RegExp(matchParams.join('').replace(/^\s+|\s+$/g,''), regexFlags);
-    return regex.test(jQuery(elem)[attr.method](attr.property));
-  }
-  $(function() {
-    var $show_btn = $( ":regex(class, ^comments_)" )
-    $show_btn.click(function() {
-      var dom_str = ".list_" + $(this).attr("class");
-      $( dom_str ).toggle( "blind" );
-    });
-   $( ":regex(class, ^list_comments_)" ).hide();
-  });
 </script>
 <% if notice %>
 <p id="notice">
   <%= notice %></p>
 <% end %>
 
-<h1>Listing posts</h1>
+<h1 class="title">Listing posts</h1>
 <div class="posts">
   <!--POSTS START-->
   <% @posts.each do |post| %>

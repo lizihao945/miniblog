@@ -1,5 +1,6 @@
 <% user = User.authenticate(params[:email], params[:passwd]) %>
 <% if not user %>
+  $( '#notice' ).remove();
   $( '#error_explanation' ).remove();
   $( "#main" ).prepend( "<div id='error_explanation'>Invalid email or password!</div>" );
 <% else %>
