@@ -38,12 +38,18 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-
+    
     respond_to do |format|
-      format.js
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
+      if @comment.user == current_user
+        @comment.destroy
+        format.js
+        format.html { redirect_to posts_url }
+        format.json { head :no_content }
+      else
+        format.js
+        format.html { redirect_to posts_url }
+        format.json { head :no_content }
+      end
     end
   end
 end
