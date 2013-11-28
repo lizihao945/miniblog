@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
+  before_filter :authenticate, :except => [:index, :show]
+  def authenticate
+    if current_user.nil?
+      redirect_to login_path, :notice => 'Please Log In To Post Your Own Blog!'
+    end
+  end
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
     if not current_user
-      flash[:notice] = 'Please Log In To Post Your Own Blog!'
+      flash[:notice] = 'You Can Now View the Posts of Others.'
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
