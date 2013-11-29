@@ -97,6 +97,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.8)
     thin (1.6.1)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -122,5 +123,6 @@ DEPENDENCIES
   rails (= 3.2.14)
   rails_12factor
   sass-rails (~> 3.2.3)
+  sqlite3
   thin
   uglifier (>= 1.0.3)
