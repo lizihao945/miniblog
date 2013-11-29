@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.14'
 
-gem "heroku", "~> 3.1.0"
-gem "rubygems-bundler", "~> 1.4.2"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
