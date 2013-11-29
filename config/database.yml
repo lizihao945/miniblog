@@ -22,8 +22,6 @@ production:
   adapter: postgresql
   encoding: unicode
   database: postgres://xzdvzdawdxgdnr:CWNK6_gJ7pRwz4lA6eOzVwOzvx@ec2-54-204-47-70.compute-1.amazonaws.com:5432/d21lucuockj60u
-  username: admin
-  password: admin
   pool: 5
   host: localhost
   timeout: 5000
