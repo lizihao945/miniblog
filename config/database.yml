@@ -25,15 +25,6 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: miniblog_production
+  database: postgres://nfhygyuvgqufha:0eNynvfElIn64dQgsz2zk8H7Z1@ec2-54-204-24-202.compute-1.amazonaws.com:5432/dda6droc8d8h0d
   pool: 5
-  host: localhost
-  username: admin
-  password: admin
   timeout: 5000
-#production:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: postgres://xzdvzdawdxgdnr:CWNK6_gJ7pRwz4lA6eOzVwOzvx@ec2-54-204-47-70.compute-1.amazonaws.com:5432/d21lucuockj60u
-#  pool: 5
-#  timeout: 5000
