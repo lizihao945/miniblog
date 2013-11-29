@@ -2,7 +2,7 @@
 
 <p>
   <b>Image:</b>
-  <% if user.image_url == "" %>
+  <% if @user.image_url == "" %>
     <%= image_tag 'default_avatar.png', style: "max-height: 40px;" %>
   <% else %>
     <%= image_tag user.image_url, style: "max-height: 40px;" %>
