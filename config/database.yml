@@ -4,9 +4,13 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: miniblog_production
   pool: 5
+  host: localhost
+  username: admin
+  password: admin
   timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
@@ -21,6 +25,15 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: postgres://xzdvzdawdxgdnr:CWNK6_gJ7pRwz4lA6eOzVwOzvx@ec2-54-204-47-70.compute-1.amazonaws.com:5432/d21lucuockj60u
+  database: miniblog_production
   pool: 5
+  host: localhost
+  username: admin
+  password: admin
   timeout: 5000
+#production:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: postgres://xzdvzdawdxgdnr:CWNK6_gJ7pRwz4lA6eOzVwOzvx@ec2-54-204-47-70.compute-1.amazonaws.com:5432/d21lucuockj60u
+#  pool: 5
+#  timeout: 5000
