@@ -33,9 +33,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-    @like = Like.new
-    @like.post = @post
-    @post.like = @like
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
@@ -55,6 +53,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
+
+    @like = Like.new
+    @like.post = @post
+    @like.count = 0
+    @like.save
+
+    @post.like = @like
     respond_to do |format|
       if @post.save
         format.html { redirect_to index_url, notice: 'Post was successfully created.' }
@@ -86,9 +91,11 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
+    @like = @post.like
     respond_to do |format|
       if current_user == @post.user
         @post.destroy
+        @like.destroy
         format.html { redirect_to posts_url }
         format.json { head :no_content }
       else

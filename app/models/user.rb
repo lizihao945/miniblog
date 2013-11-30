@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :likes
   attr_accessible :email, :name, :passwd, :image_url, :passwd_confirmation
   #email
   validates_uniqueness_of :email
@@ -17,4 +16,9 @@ class User < ActiveRecord::Base
     user = find_by_email_and_passwd(email, passwd)
   end
 
+  has_many :user_likeships
+  has_many :likes, through: :user_likeships
+  def already_likes?(post)
+    self.likes.find(:all, conditions: ['post_id = ?', post.id]).size != 0
+  end
 end

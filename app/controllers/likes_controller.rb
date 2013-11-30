@@ -57,15 +57,16 @@ class LikesController < ApplicationController
   # PUT /likes/1.json
   def update
     @like = Like.find(params[:id])
-
+    if current_user.already_likes?(@like.post)
+      @user_likeship = UserLikeship.find_by_like_id( @like.id )
+      @user_likeship.destroy
+      @like.update_attribute(:count, "#{@like.count - 1}")
+    else
+      @user_likeship = UserLikeship.create( like: @like, user: current_user )
+      @like.update_attribute(:count, "#{@like.count + 1}")
+    end
     respond_to do |format|
-      if @like.update_attributes(params[:like])
-        format.html { redirect_to @like, notice: 'Like was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @like.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to index_url, notice: 'Like was successfully updated.' }
     end
   end
 
