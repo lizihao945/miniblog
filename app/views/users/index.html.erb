@@ -16,7 +16,9 @@
     <td><%= user.image_url %></td>
     <td>
       <% if user.image_url != "" %>
-      <%= image_tag user.image_url, style: "max-height: 40px;" %>
+        <%= image_tag user.image_url, style: "max-height: 40px;" %>
+      <% else %>
+        <%= image_tag 'default_avatar.png', style: "max-height: 40px;" %>
       <% end %>
     </td>
     <td><%= user.name %></td>

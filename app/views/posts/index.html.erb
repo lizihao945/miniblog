@@ -23,7 +23,26 @@
           <% if current_user == post.user %>
             <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>&nbsp;|&nbsp;
           <% end %>
-          <%= link_to 'like' %>&nbsp;|&nbsp;
+          <% if current_user %>
+            <% if current_user.already_likes?(post) %>
+            <%= link_to "Unlike (#{post.like.count})", post.like, id: "post_like_#{post.id}",
+              method: :put, remote: true %>
+            <% else %>
+            <%= link_to "Like (#{post.like.count})", post.like, id: "post_like_#{post.id}",
+              method: :put, remote: true %>
+            <% end %>
+          <% else %>
+            <%= link_to "Like (#{post.like.count})" %>
+          <% end %>
+            <!--
+            <% if post.like %>
+            <span id="likes_count_<%= post.id %>">(<%= post.like.count %>)</span>
+            <% else %>
+            <span id="likes_count_<%= post.id %>">(0)</span>
+            <% end %>
+            -->
+            
+          &nbsp;|&nbsp;
           <a href="javascript:void(0);" id="comments_<%= post.id %>">Comments
             <% if post.comments.count != 0 %>
             <span id="comments_count_<%= post.id %>">(<%= post.comments.count %>)</span>
