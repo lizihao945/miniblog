@@ -1,0 +1,5 @@
+<% if current_user.already_likes?(@like.post) %>
+  $( "#post_like_<%= @like.post.id %>" ).html( "Unlike (<%= @like.count %>)" );
+<% else %>
+  $( "#post_like_<%= @like.post.id %>" ).html( "Like (<%= @like.count %>)" );
+<% end %>
