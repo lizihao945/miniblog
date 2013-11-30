@@ -1,4 +1,7 @@
 Miniblog::Application.routes.draw do
+  resources :likes
+
+
   #resources :comments
   get 'signup' => 'users#new', as: 'signup'
   get 'login' => 'posts#index', as: 'login'

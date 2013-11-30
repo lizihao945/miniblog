@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :likes
   attr_accessible :email, :name, :passwd, :image_url, :passwd_confirmation
   #email
   validates_uniqueness_of :email
