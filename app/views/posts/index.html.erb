@@ -24,11 +24,14 @@
             <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>&nbsp;|&nbsp;
           <% end %>
           <a href="javascript:void(0);" id="post_like_<%= post.id %>">Like
+            <!--
             <% if post.like %>
             <span id="likes_count_<%= post.id %>">(<%= post.like.count %>)</span>
             <% else %>
             <span id="likes_count_<%= post.id %>">(0)</span>
             <% end %>
+            -->
+            <span id="likes_count_<%= post.id %>">(<%= post.like.count %>)</span>
           </a>
           &nbsp;|&nbsp;
           <a href="javascript:void(0);" id="comments_<%= post.id %>">Comments

@@ -4,7 +4,6 @@
   <tr>
     <th>Count</th>
     <th>Post</th>
-    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +13,6 @@
   <tr>
     <td><%= like.count %></td>
     <td><%= like.post %></td>
-    <td><%= like.user %></td>
     <td><%= link_to 'Show', like %></td>
     <td><%= link_to 'Edit', edit_like_path(like) %></td>
     <td><%= link_to 'Destroy', like, method: :delete, data: { confirm: 'Are you sure?' } %></td>
