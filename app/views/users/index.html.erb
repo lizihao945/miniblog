@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Image Url</th>
     <th>Image</th>
     <th>Name</th>
     <th>Email</th>
@@ -13,7 +12,6 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.image_url %></td>
     <td>
       <% if user.image_url != "" %>
         <%= image_tag user.image_url, style: "max-height: 40px;" %>

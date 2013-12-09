@@ -28,7 +28,7 @@ var matchParams = match[3].split(','),
 return regex.test(jQuery(elem)[attr.method](attr.property));
 }
 jQuery(function(){
-  $( "#show_do_log_in" ).click(function() {
+  $( ".show_do_log_in" ).click(function() {
     $( "#do_log_in" ).toggle( "blind" );
   });
   $( "#do_log_in" ).hide();
