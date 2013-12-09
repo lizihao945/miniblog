@@ -40,14 +40,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # GET /posts/1/edit
-  def edit
-    @post = Post.find(params[:id])
-    if current_user != @post.user
-      redirect_to index_url, notice: 'Edit your own!'
-    end
-  end
-
   # POST /posts
   # POST /posts.json
   def create
@@ -62,6 +54,7 @@ class PostsController < ApplicationController
     @post.like = @like
     respond_to do |format|
       if @post.save
+        format.js
         format.html { redirect_to index_url, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else

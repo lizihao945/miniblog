@@ -24,25 +24,13 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <% if controller.controller_name == 'posts' %>
-            	<li class="active"><a href="#">All Posts</a></li>
+            <li><a href="/posts">All Posts</a></li>
+            <% if current_user %>
+              <li><a href="/users/<%= current_user.id %>/posts">My Posts</a></li>
             <% else %>
-            	<li><a href="/posts">All Posts</a></li>
+              <li><a href='/login'>My Posts</a></li>
             <% end %>
-            <% if controller.controller_name == 'own_post' %>
-            	<li class="active"><a href="#">My Posts</a></li>
-            <% else %>
-                <% if current_user %>
-            	  <li><a href="/users/<%= current_user.id %>/posts">My Posts</a></li>
-            	<% else %>
-            	  <li><a href='#'>My Posts</a></li>
-            	<% end %>
-            <% end %>
-            <% if controller.controller_name == 'following' %>
-            	<li class="active"><a href="#">Following</a></li>
-            <% else %>
-            	<li><a href="/fllowing">Following</a></li>
-            <% end %>
+            <li class="active"><a href="#">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           	<% if current_user %>

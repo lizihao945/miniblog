@@ -24,20 +24,21 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-			<li class="active"><a href="#">All Posts</a></li>
+			      <li class="active"><a href="/posts">All Posts</a></li>
             <% if current_user %>
-        	  <li><a href="/users/<%= current_user.id %>/posts">My Posts</a></li>
-        	<% else %>
-        	  <li><a href='#'>My Posts</a></li>
-        	<% end %>
+        	    <li><a href="/users/<%= current_user.id %>/posts">My Posts</a></li>
+          	<% else %>
+        	    <li><a href='#'>My Posts</a></li>
+        	  <% end %>
+            <li><a href="/users">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           	<% if current_user %>
               <a href="/users/<%= current_user.id %>" class='navbar-brand hidden-sm'><%= current_user.name %></a>
               <li><a href="/logout">Log out</a></li>
             <% else %>
-			  <li><a href="javascript:void(0);" class="show_do_log_in">Log in</a></li>
-			  <li><a href="signup">Sign up</a></li>
+			        <li><a href="javascript:void(0);" class="show_do_log_in">Log in</a></li>
+			        <li><a href="signup">Sign up</a></li>
             <% end %>
           </ul>
         </div><!--/.nav-collapse -->
@@ -49,6 +50,10 @@
 			<div id="user_info" class='row'>
 			  <% if current_user %>
           <%= render current_user %>
+          <%= form_for Post.new do |f| %>
+            <p><%= f.text_area :content, class: 'form-control', placeholder: 'Write Your Post Here!', rows: 5 %></p>
+            <p><%= submit_tag 'New Post', class: 'btn btn-lg btn-primary', role: 'button' %></p>
+          <% end %>
 			  <% else %>
   			  <div id="detailed_info">You're Not Logged In!</div>
 			    <div class="btn_func">

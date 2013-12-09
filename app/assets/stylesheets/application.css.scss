@@ -22,13 +22,6 @@
 
 #main {
   min-height: 500px;
-  h1.title {
-    margin: 0;
-    padding-bottom: 0.5em;
-    font: small-caps 2.5em "Times" sans-serif;
-    color: #226;
-    border-bottom: 3px dotted #77d;
-  }
   .field{
     font-size: 1.2em;
     width: 170px;
@@ -45,8 +38,8 @@
 }
 
 body {
-  min-height: 2000px;
-  padding-top: 70px;
+  min-height: 1000px;
+  padding-top: 50px;
 }
 
 #notice {
@@ -90,10 +83,8 @@ body {
 html,
 body {
   height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
 }
 
-/* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
   height: auto;
