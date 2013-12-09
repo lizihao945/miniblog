@@ -7,30 +7,15 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *= require jquery.ui.all
+ *= require comments
+ *= require posts
+ *= require bootstrap-theme
+ *= require bootstrap
  *= require_self
- *= require_tree .
  */
 .avatar {
   img {
     max-height: 80px;
-  }
-}
-body {
-  margin-left: 50px;
-  width: 1200px;
-}
-
-#banner {
-  background: #4cafb5;
-  padding: 10px;
-  border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times", sans-serif;
-  color: #ffffff;
-  text-align: center;
-  span {
-    color: #7d7d7d;
-    font: 30px/30px "Arial", serif;
   }
 }
 
@@ -115,5 +100,43 @@ body {
           }
         }
     }     
+  }
+}
+
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
   }
 }

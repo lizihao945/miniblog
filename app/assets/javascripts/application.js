@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require bootstrap
 //= require_tree .
 jQuery.expr[':'].regex = function(elem, index, match) {
 var matchParams = match[3].split(','),
