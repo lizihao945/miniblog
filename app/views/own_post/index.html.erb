@@ -1,0 +1,62 @@
+<% if notice %>
+<p id="notice">
+  <%= notice %></p>
+<% end %>
+
+<h1 class="title">Listing posts</h1>
+<div class="posts">
+  <!--POSTS START-->
+  <% @posts.each do |post| %>
+  <div id="post_<%= post.user_id %>", class="post">
+    <div class="user_info">
+      <%= render post.user %></div>
+    <div class="post_detail">
+      <div class="post_content"><%= post.content %></div>
+      <div class="post_func">
+        <div class="time_from_client">
+          <%= post.content.length %>
+          words
+          |
+          posted
+          <%= time_ago_in_words post.created_at %>&nbsp;ago&nbsp;from&nbsp;Miniblog.</div>
+        <div class="post_handle">
+          <% if current_user == post.user %>
+            <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>&nbsp;|&nbsp;
+          <% end %>
+          <% if current_user %>
+            <% if current_user.already_likes?(post) %>
+            <%= link_to "Unlike (#{post.like.count})", post.like, id: "post_like_#{post.id}",
+              method: :put, remote: true %>
+            <% else %>
+            <%= link_to "Like (#{post.like.count})", post.like, id: "post_like_#{post.id}",
+              method: :put, remote: true %>
+            <% end %>
+          <% else %>
+            <%= link_to "Like (#{post.like.count})" %>
+          <% end %>
+            <!--
+            <% if post.like %>
+            <span id="likes_count_<%= post.id %>">(<%= post.like.count %>)</span>
+            <% else %>
+            <span id="likes_count_<%= post.id %>">(0)</span>
+            <% end %>
+            -->
+            
+          &nbsp;|&nbsp;
+          <a href="javascript:void(0);" id="comments_<%= post.id %>">Comments
+            <% if post.comments.count != 0 %>
+            <span id="comments_count_<%= post.id %>">(<%= post.comments.count %>)</span>
+            <% end %>
+          </a>
+        </div>
+      </div></div>
+    <div class="list_comments list_comments_<%= post.id %> ">
+      <div id="existing_comments_<%= post.id %>" ><%= render partial: post.comments %></div>
+      <%= render post %></div>
+  </div>
+  <% end %>
+  <!--POSTS END-->
+  <% if current_user %>
+  <%= button_to 'New Post', new_post_path, class: 'new_post', method: :get %>
+  <% end %>
+  </div>
