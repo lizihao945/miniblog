@@ -30,11 +30,10 @@
         	<% else %>
         	  <li><a href='#'>My Posts</a></li>
         	<% end %>
-        	<li><a href="/fllowing">Following</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           	<% if current_user %>
-              <li class='navbar-brand hidden-sm'><%= current_user.name %></li>
+              <a href="/users/<%= current_user.id %>" class='navbar-brand hidden-sm'><%= current_user.name %></a>
               <li><a href="/logout">Log out</a></li>
             <% else %>
 			  <li><a href="javascript:void(0);" class="show_do_log_in">Log in</a></li>
@@ -44,16 +43,14 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-	<div id="columns">
-		<div id="side">
-			<div id="user_info_title">My Account</div>
-			<div id="user_info">
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-3">
+			<div id="user_info" class='row'>
 			  <% if current_user %>
-			    <div id="detailed_info"><%= render current_user %><br/>
-					<%= link_to "Log out", logout_path %>
-				</div>
+          <%= render current_user %>
 			  <% else %>
-  			    <div id="detailed_info">You're Not Logged In!</div>
+  			  <div id="detailed_info">You're Not Logged In!</div>
 			    <div class="btn_func">
 				  <%= link_to "Sign Up", signup_path %>&nbsp;|&nbsp;
 				  <%= link_to "Log In", 'javascript:void(0);', class: 'show_do_log_in' %>
@@ -61,28 +58,16 @@
 			  </div>
 			  <% end %>
 			</div>
-			<ul>
-				<li>
-					<a href="/">Home Page</a>
-				</li>
-				<li>
-					<% if current_user %>
-					  <a href="/users/<%= current_user.id %>">My Profile</a>
-					<% else %>
-					  <a href="/login">My Profile</a>
-					<% end %>
-				</li>
-				<li>
-					<a href="mailto:lizihao945@gmail.com">Contact Me</a>
-				</li>
-			</ul>
 		</div>
-		<div id="main">
+		<div id="main" class='col-md-9'>
 			<%= yield %></div>
+      </div>
 	</div>
 	<div id="footer">
       <div class="container">
-        <p class="text-muted">James Lee Nov., 2013</p>
+        <p class="text-muted">James Lee Nov., 2013
+          <a href="mailto:lizihao945@gmail.com">Contact Me</a>
+    	</p>
       </div>
     </div>
 </body>

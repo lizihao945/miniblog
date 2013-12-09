@@ -12,19 +12,20 @@
   <% end %>
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Enter Nickname' %>
   </div>
   <div class="field">
     <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
+    <%= f.text_field :email, class: 'form-control', placeholder: 'Enter Email' %>
   </div>
   <div class="field">
     <%= f.label :passwd %>
-    <%= f.password_field :passwd, class: 'form-control' %>
+    <%= f.password_field :passwd, class: 'form-control', placeholder: 'Enter Password' %>
   </div>
   <div class="field">
     <%= f.label :passwd_confirmation %>
-    <%= f.password_field :passwd_confirmation, class: 'form-control' %>
+    <%= f.password_field :passwd_confirmation, class: 'form-control', placeholder: 'Enter Password Again' %>
   </div>
+  <br />
   <%= submit_tag 'Sign up', class: 'btn btn-lg btn-primary', role: 'button' %>
 <% end %>

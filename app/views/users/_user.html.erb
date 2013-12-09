@@ -1,8 +1,14 @@
-<div class="avatar">
+<div class='col-md-5'>
+  <div class="avatar">
   <% if user.image_url == "" %>
     <%= image_tag 'default_avatar.png' %>
   <% else %>
     <%= image_tag user.image_url %>
   <% end %>
+  </div>
 </div>
-<%= user.name %>
+<div class='col-md-7'>
+  <div class='h4'><%= current_user.name %></div>
+  <div class='h5'><a href="/users/<%= current_user.id %>">View My Profile</a></div>
+  <tr><%= current_user.posts.count %> Miniblog Posts</tr>
+</div>

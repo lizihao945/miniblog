@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
     user = find_by_email_and_passwd(email, passwd)
   end
 
+  has_many :posts
+
   has_many :user_likeships
   has_many :likes, through: :user_likeships
   def already_likes?(post)

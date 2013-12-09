@@ -20,89 +20,28 @@
   }
 }
 
-#columns {
-  background: #712704;
-  #main {
-    min-height: 500px;
-    h1.title {
-      margin: 0;
-      padding-bottom: 0.5em;
-      font: small-caps 2.5em "Times" sans-serif;
-      color: #226;
-      border-bottom: 3px dotted #77d;
-    }
-    .field{
+#main {
+  min-height: 500px;
+  h1.title {
+    margin: 0;
+    padding-bottom: 0.5em;
+    font: small-caps 2.5em "Times" sans-serif;
+    color: #226;
+    border-bottom: 3px dotted #77d;
+  }
+  .field{
+    font-size: 1.2em;
+    width: 170px;
+    input {
+      width: 300px;
+      padding: 5px 5px 5px 5px;
       font-size: 1.2em;
-      width: 170px;
-      input {
-        width: 300px;
-        padding: 5px 5px 5px 5px;
-        font-size: 1.2em;
-      border:2px solid #B3D6EF;
-      background:#ffffff;
-      }
+    border:2px solid #B3D6EF;
+    background:#ffffff;
     }
-    margin-left: 17em;
-    padding: 1em;
-    background: white;
   }
-  #user_info_title {
-    color: white;
-    font: small-caps 20px/20px "Arial", sans-serif;
-  }
-  #side {
-    float: left;
-    padding: 1em 2em;
-    width: 13em;
-    background: #712704;
-    .field{
-      font-size: 1.1em;
-      input {
-        width: 150px;
-        overflow: hidden;
-        padding: 5px 5px 5px 5px;
-        border:1px solid #B3D6EF;
-        background:#ffffff;
-      }
-    }
-    #do_log_in  {
-      margin: 0;  
-      padding-top: 0.5em;
-      font: 110% sans-serif;
-      color: white;
-      border-top: 2px dotted #d4d4d4;
-    }
-    #user_info {
-      width: 170px;
-      color: #eed205;
-      margin-top: 10px;
-      padding-top: 5px;
-      border-top: 2px dotted #d4d4d4;
-      border-bottom: 2px dotted #d4d4d4;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
-      #detailed_info {
-        font-size: 1.3em;
-      }
-      .btn_func{
-        a {
-        color: #fcfc8a;
-        font-size: 1.1em;
-        }
-      }
-    }
-    ul {
-      padding: 0;
-      li {
-        padding: 5px 0 0 0;
-        list-style: none;
-        a {
-          color: #fcfc8a;
-          font-size: 1.2em;
-          }
-        }
-    }     
-  }
+  padding: 1em;
+  background: white;
 }
 
 body {

@@ -1,7 +1,14 @@
-<%= div_for comment do %>
+<%= div_for comment, class: 'list-group-item' do %>
 <div class="comment_user">
   <% if comment.user %>
-  	<%= render comment.user %>
+    <div class="avatar">
+      <% if comment.user.image_url == "" %>
+        <%= image_tag 'default_avatar.png' %>
+      <% else %>
+        <%= image_tag comment.user.image_url %>
+      <% end %>
+    </div>
+    <div><%= current_user.name %></div>
   <% end %>
 </div>
 <p>
